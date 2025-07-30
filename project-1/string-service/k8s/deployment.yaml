@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: string-service
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: string-service
+  template:
+    metadata:
+      labels:
+        app: string-service
+    spec:
+      containers:
+        - name: string-service
+          image: kevin475/kubernetes-string-service:latest
+          ports:
+            - containerPort: 3000

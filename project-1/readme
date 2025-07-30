@@ -1,0 +1,32 @@
+# ¿En qué consiste el proyecto?
+Es un entorno Kubernetes completo con:
+- Varios microservicios (apps pequeñas).
+- Un API Gateway que los enruta.
+- Observabilidad completa (métricas, logs).
+- Contenedores bien definidos.
+- Buenas prácticas de despliegue (con Helm o Kustomize).
+- Extras como rate-limiting.
+
+## Componentes principales del sistema
+A. String Service 
+ - /reverse?text=hola
+ - Expone un puerto: 3000
+
+B. Math Service
+ - /add?a=5&b=3
+ - Expone un puerto: 3001
+
+
+## Observabilidad (Prometheus + Grafana + Loki)
+
+A. Prometheus
+- Recolecta métricas de los pods y nodos.
+- Ej: CPU, memoria, tráfico, etc.
+
+B. Grafana
+- Visualiza los datos de Prometheus.
+- Ej: Gráficas de uso, dashboards por servicio, alertas.
+
+C. Loki
+- Centraliza logs de todos tus pods.
+- Puedes ver qué pasó si algo falla, o seguir requests.

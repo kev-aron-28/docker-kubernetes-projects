@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-ingress
+spec:
+  rules:
+    - host: my.local
+      http:
+        paths:
+          - path: /reverse
+            pathType: Prefix
+            backend:
+              service:
+                name: string-service
+                port:
+                  number: 80
+          - path: /add
+            pathType: Prefix
+            backend:
+              service:
+                name: math-service
+                port:
+                  number: 80

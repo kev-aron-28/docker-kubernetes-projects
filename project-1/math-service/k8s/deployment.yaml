@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: math-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: math-service
+  template:
+    metadata:
+      labels:
+        app: math-service
+    spec:
+      containers:
+        - name: math-service
+          image: kevin475/kubernetes-math-service:latest
+          ports:
+           - containerPort: 3001
