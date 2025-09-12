@@ -111,3 +111,17 @@ Kubernetes tiene esquemas oficiales que definen cada kind.
 
 kubectl explain <Resource> --recursive
 kubectl explain pod.spec.containers
+
+# how to run
+kubectl apply -f configmap.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f pvc.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+# To verify
+
+kubectl get pods
+kubectl get svc
+kubectl describe pod <pod-name>
+kubectl logs <pod-name>
