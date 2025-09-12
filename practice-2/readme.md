@@ -124,4 +124,4 @@ kubectl apply -f service.yaml
 kubectl get pods
 kubectl get svc
 kubectl describe pod <pod-name>
-kubectl logs <pod-name>
+kubectl logs <pod-name> 
