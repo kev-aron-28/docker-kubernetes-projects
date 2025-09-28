@@ -51,3 +51,21 @@ spec:
     requests:
       storage: 10Gi
   storageClassname: standard
+
+
+What is a mountPath? 
+
+mountPath is the path inside the container where a volume (like a PVC) is mounted.
+
+It tells the container “this directory will actually store data on the volume”.
+
+Anything written to this path is persisted to the underlying volume (PVC/PV) and not lost if the container restarts.
+
+Example:
+volumeMounts:
+  - name: my-volume
+    mountPath: /data
+
+my-volume → refers to a volume defined in volumes:.
+/data → is inside the container.
+Any file the container writes to /data goes to my-volume.
