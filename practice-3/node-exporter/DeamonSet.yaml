@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: DeamonSet
+metadata:
+  name: node-exporter
+  namespace: monitoring
+  labels:
+    app: node-exporter
+spec:
+  selector:
+    matchLabels:
+      app: node-exporter
+  template:
+    metadata:
+      labels:
+        app: node-exporter
+    spec:
+      containers:
+        - name: node-exporter
+          image: prom/node-exporter:latest
+          ports:
+            - name: metrics
+              containerPort: 9100
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+          
