@@ -1,5 +1,5 @@
-# ConfigMap
 
+# ConfigMap
 A ConfigMap in Kubernetes is an API object used to store configuration data in key-value pairs.
 It allows you to separate configuration from your application code, making your pods more flexible and portable.
 
@@ -46,7 +46,6 @@ data:
     db.host=localhost
     db.port=5432
     db.user=admin
-
 
 and to apply it
 
