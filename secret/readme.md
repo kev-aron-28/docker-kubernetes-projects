@@ -8,7 +8,9 @@ by default unless you configure encryption).
 
 
 # How secrets are stored & important facts
-Storage: Secret objects are stored in the API server backing store (typically etcd). By default that data may be stored unencrypted in etcd unless you enable encryption at rest. Anyone with API or etcd access can read or modify them. 
+Storage: Secret objects are stored in the API server backing store (typically etcd). 
+By default that data may be stored unencrypted in etcd unless you enable encryption at rest. 
+Anyone with API or etcd access can read or modify them. 
 
 Encoding: Secret data fields are base64-encoded in the manifest; base64 ≠ encryption. Treat it as obfuscation for the wire/payload, not security. 
 
@@ -114,12 +116,11 @@ kubectl create secret generic db-creds \
   --from-literal=username=admin \
   --from-literal=password='s3cr3t!'
 
-
 # How would SealSecret would work?
 
 1. Install the SealedSecrets controller
-Usually via Helm or a YAML manifest:
-kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.0/controller.yaml
+  Usually via Helm or a YAML manifest:
+  kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.0/controller.yaml
 
 This deploys the controller in your cluster (kube-system by default).
 The controller generates a key pair:
