@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: test-deployment-2
+spec:
+ matchLabels:
+  app: web
+ 
+ template:
+  metadata:
+   labels:
+     app: web
+     tier: frontend
+ spec:
+  containers:
+    - name: nginx
+      image:

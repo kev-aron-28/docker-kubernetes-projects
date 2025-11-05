@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment-1
+spec:
+selector:
+  matchLabels:
+    app: web
+  template:
+    medatadata:
+      labels:
+         app: web
+    spec:
+      containers:
+        - name: nginx
+         image: nginx:latest
+
+
+
