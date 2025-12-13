@@ -12,15 +12,10 @@ kubectl config set-cluster name
 
 kubectl config set-context --current --namespace=ggckad-s2
 
-
 # Creating objects
-
 kubectl apply -f ./my-manifest.yaml
-
 kubectl create deployment nginx --image=nginx
-
 kubectl create job hello --image=busybox:1.28 -- echo "Hello World"
-
 kubectl explain pods
 
 # View and find resources
@@ -123,37 +118,17 @@ kubectl config get-context
 # use a context
 kubectl config use-context minikube
 
+# Add label to pod 
+kubectl label pods <pod-name> <key>=<value>
 
+# Create a service
+kubectl create service clusterip fronted-svc --tcp=80:80
 
+# Stop a pod without grace-period
+kubectl delete pod nginx-test --grace-period=0 --force
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 
+kubectl run nginx-yaml --image=nginx --dry-run=client -o yaml
 
 
 
