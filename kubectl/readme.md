@@ -42,6 +42,7 @@ kubectl get pods -n kube-system
 kubectl get pods
 kubectl get pods -A
 kubectl get pods -n <namespace>
+kubectl get pods -n dev -o wide
 
 # describe a pod
 kubectl describe pod <pod-name>
@@ -49,6 +50,8 @@ kubectl describe pod <pod-name>
 # view pod logs
 kubectl logs <pod>
 kubectl logs -f <pod> # Follow logs
+kubectl logs <pod-name> -n dev --previous
+
 
 # Exe insde a pod
 kubectl exec -it <pod> 
@@ -81,6 +84,7 @@ kubectl get svc
 
 # describe service
 kubectl describe svc <service>
+kubectl get pods -n dev --show-labels
 
 # expose deployment as a service
 kubectl expose deployment myapp --type=LoadBalancer --port=80
@@ -111,7 +115,6 @@ kubectl get deploy myapp -o yaml
 # patch resources
 kubectl patch deploy myapp -p '{"spec": {"replicas": 10}}'
 
-
 # list contexts
 kubectl config get-context
 
@@ -130,49 +133,24 @@ kubectl delete pod nginx-test --grace-period=0 --force
 # 
 kubectl run nginx-yaml --image=nginx --dry-run=client -o yaml
 
+# Get endpoints
+kubectl get endpoints my-web-hello-web
 
+## Real world debugging flow
+Service not working?
+→ kubectl describe svc
+→ kubectl get endpoints
+→ kubectl get pods --show-labels
 
+##  Check usage in pods
+kubectl top pods -n dev
+but must have enabled minikube addons enable metrics-server
 
+## Something is stuck Pending
+kubectl describe pod <pod-name> -n dev
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##  Edit a deployment
+kubectl edit deployment hello-api -n dev
 
 
 

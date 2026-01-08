@@ -1,0 +1,25 @@
+ingress:
+  enabled: true
+  className: nginx
+
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+  hosts:
+    - host: mini-platform.local
+      paths:
+        - path: /api(/|$)(.*)
+          pathType: ImplementationSpecific
+          service:
+            name: mini-platform-api
+            port: 8080
+
+        # ejemplo futuro
+        # - path: /frontend(/|$)(.*)
+        #   pathType: Prefix
+        #   service:
+        #     name: mini-platform-frontend
+        #     port: 80
+
+  tls: []
