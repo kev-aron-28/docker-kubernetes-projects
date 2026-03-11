@@ -25,7 +25,7 @@ Runs stateful apps that need:
 Stable identity (pod-0, pod-1)
 Persistent storage
 Ordered startup/shutdown
-Databases, Kafka, etc.
+Databases, Kafka, etc. 
 
 5. DaemonSet
 Runs one pod on every node.

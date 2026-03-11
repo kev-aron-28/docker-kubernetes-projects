@@ -94,11 +94,8 @@ docker run --network=net --name=db mysql
 # connect container to a network
 docker network connect mynet myapp
 
-
-
-
-
-
+# List only the container IDs of running containers
+docker ps -q
 
 
 

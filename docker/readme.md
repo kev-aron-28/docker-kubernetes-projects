@@ -10,7 +10,6 @@ What makes them awesome:
 - Portable
 
 # Images
-
 Container images are composed of layers. And each of these layers, once created are immutable.
 Each layer in an image contains a set of filesystem changes.
 

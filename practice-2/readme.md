@@ -37,7 +37,6 @@ spec:
 # Principales objetos y sus spec
 
 # Pod
-
 spec:
   containers:                # Lista de contenedores
     - name: nombre
@@ -83,8 +82,6 @@ spec:
 
 
 # ConfigMap
-
-spec:   # ❌ (no tiene spec, solo data)
 data:
   VAR1: "valor1"
   VAR2: "valor2"

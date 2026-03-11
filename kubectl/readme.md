@@ -152,6 +152,8 @@ kubectl describe pod <pod-name> -n dev
 ##  Edit a deployment
 kubectl edit deployment hello-api -n dev
 
+# Create a pod
+kubectl run nginx-test --image=nginx
 
 
 
